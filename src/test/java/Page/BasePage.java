@@ -596,5 +596,14 @@ public class BasePage extends PageObject {
         return driver.findElements(locator);
     }
 
+    public void hoverOverElement(By locator) throws Exception {
+        try{
+            WebElement element = driver.findElement(locator);
+            actions.moveToElement(element).perform();
+        }catch (Exception e){
+            throw new Exception("FAIL: No se pudo hacer hover sobre el elemento", e);
+        }
+    }
+
 }
 
